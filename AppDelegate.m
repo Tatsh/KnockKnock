@@ -134,14 +134,6 @@
             
         });
     }
-    
-    //check for update
-    // unless user has turn off via prefs
-    if(YES != [defaults boolForKey:PREF_DISABLE_UPDATE_CHECK])
-    {
-        //check
-        [self check4Update:nil];
-    }
 
     //kick off thread to begin enumerating shared objects
     // ->this takes awhile, so do it now/first!
