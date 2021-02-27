@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Objective-See. All rights reserved.
 //
 
-@import Sentry;
 #import "main.h"
 
 int main(int argc, char *argv[])
@@ -15,17 +14,7 @@ int main(int argc, char *argv[])
     int status = -1;
     
     @autoreleasepool
-    {
-        //disable stderr
-        // sentry dumps to this, and we want only JSON to output...
-        disableSTDERR();
-        
-        //init crash reporting
-        [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
-            options.dsn = SENTRY_DSN;
-            options.debug = YES;
-        }];
-        
+    {        
         //handle '-h' or '-help'
         if( (YES == [[[NSProcessInfo processInfo] arguments] containsObject:@"-h"]) ||
             (YES == [[[NSProcessInfo processInfo] arguments] containsObject:@"-help"]) )
